@@ -33,19 +33,18 @@ namespace WebApplication2.Models
             .HasForeignKey(usr => usr.UserAuth_Id)
             .OnDelete(DeleteBehavior.Cascade);
 
+
             modelBuilder.Entity<UserRoles>()
              .HasOne(uR => uR.UserAuth)
              .WithMany(uu => uu.UserRole)
              .HasForeignKey(uR => uR.UserAuthId)
              .OnDelete(DeleteBehavior.Cascade);
 
-
             modelBuilder.Entity<UserRoles>()
                 .HasOne(uRr => uRr.Role)
                 .WithMany(rr => rr.UserRoles)
                 .HasForeignKey(uRr => uRr.RoleId)
                 .OnDelete(DeleteBehavior.Cascade);
-
 
         }
 
