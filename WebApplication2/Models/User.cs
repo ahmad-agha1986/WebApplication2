@@ -28,8 +28,7 @@ namespace WebApplication2.Models
 
         public int? UserAuth_Id { get; set; }
 
-        public bool? OnLeave { get; set; }
-     
+        public bool? OnLeave { get; set; }  
         public virtual UserAuth UserAuth { get; set; }
         
 
