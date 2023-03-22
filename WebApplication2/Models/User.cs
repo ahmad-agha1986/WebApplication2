@@ -1,5 +1,6 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
 
 
 namespace WebApplication2.Models
@@ -11,16 +12,10 @@ namespace WebApplication2.Models
 
         [Required(ErrorMessage = "Job title is required")]
         public string? Job_Title { get; set; }
-
-
-       
+     
         public string? FirstName { get; set; }
-
-
         
         public string? LastName { get; set; }
-
-
 
 
         [Required(ErrorMessage = "Phone number is required")]
@@ -28,13 +23,15 @@ namespace WebApplication2.Models
         public string? Phone { get; set; }
 
 
-
-
         [Required(ErrorMessage = "Registration date is required")]
         public DateTime? Registration_date { get; set; }
 
-       
+        public int? UserAuth_Id { get; set; }
+
         public bool? OnLeave { get; set; }
+     
+        public virtual UserAuth UserAuth { get; set; }
+        
 
     }
 }
