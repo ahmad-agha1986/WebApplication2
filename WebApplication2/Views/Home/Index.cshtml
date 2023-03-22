@@ -2,7 +2,47 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    .hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        background-color: #F8F8FF;
+    }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            max-width: 50%;
+        }
+
+    .login-btn {
+        color: #fff;
+        background-color: #007bff;
+        padding: 1em 2em;
+        border-radius: 0.5em;
+        text-decoration: none;
+        font-size: 1.2rem;
+    }
+
+        .login-btn:hover {
+            background-color: #0056b3;
+        }
+</style>
+
+<div class="hero">
+    <h1>Welcome to the Project Management App</h1>
+    <p>Our Aim  Is To Make Allocating Resources Look Easy, Fast And Professional </p>
+    <a class="login-btn" asp-action="LoginView" asp-controller="Account">Enter</a>
 </div>
+
+
+

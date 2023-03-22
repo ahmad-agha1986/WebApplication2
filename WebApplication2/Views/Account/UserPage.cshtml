@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "User Page";
+}
+<h1 class="welcome-msg">@ViewBag.UserName</h1>
+
+
+<div class="logout-button">
+    <a class="btn btn-primary" href="@Url.Action("Logout", "Account")">Logout</a>
+</div>
+
+
+<style>
+
+    .welcome-msg {
+        font-size: 15px;
+        position: absolute;
+        right: 10px;
+        top: 30px;
+        color: orangered;
+        font-style: italic;
+    }
+
+
+
+    .logout-button {
+        position: absolute;
+        right: 0;
+        top: 40px;
+        padding: 15px 25px;
+        font-size: 16px;
+    }
+</style>
+
+
+

@@ -1,0 +1,128 @@
+﻿@model WebApplication2.Models.RegisterUserViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center mb-0">Register</h2>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Register" method="post">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+
+                        <div class="form-group">
+                            <label asp-for="UserAuth.Email">Email</label>
+                            <input asp-for="UserAuth.Email" class="form-control" />
+                            <span asp-validation-for="UserAuth.Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="UserAuth.UserName">Username</label>
+                            <input asp-for="UserAuth.UserName" class="form-control" />
+                            <span asp-validation-for="UserAuth.UserName" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label asp-for="UserAuth.PasswordHash">Password</label>
+                            <input asp-for="UserAuth.PasswordHash" type="password" class="form-control" />
+                            <span asp-validation-for="UserAuth.PasswordHash" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="UserAuth.ConfirmPassword">Confirm Password</label>
+                            <input asp-for="UserAuth.ConfirmPassword" type="password" class="form-control" />
+                            <span asp-validation-for="UserAuth.ConfirmPassword" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="User.FirstName">First Name</label>
+                            <input asp-for="User.FirstName" class="form-control" />
+                            <span asp-validation-for="User.FirstName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="User.LastName">Last Name</label>
+                            <input asp-for="User.LastName" class="form-control" />
+                            <span asp-validation-for="User.LastName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="User.Job_Title">Job Title</label>
+                            <input asp-for="User.Job_Title" class="form-control" />
+                            <span asp-validation-for="User.Job_Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="User.Phone">Phone</label>
+                            <input asp-for="User.Phone" class="form-control" />
+                            <span asp-validation-for="User.Phone" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="User.Registration_date">Registration Date</label>
+                            <input asp-for="User.Registration_date" class="form-control" />
+                            <span asp-validation-for="User.Registration_date" class="text-danger"></span>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Register</button>
+                            <a asp-action="AdminPage" class="btn btn-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<style>
+    .card {
+        margin-top: 30px;
+        border: none;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+        background-color: #f7f7f7;
+        border-bottom: 1px solid #e4e4e4;
+        padding: 20px;
+    }
+
+    .card-title {
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        border-radius: 5px;
+    }
+
+    .invalid-feedback {
+        display: none;
+        margin-top: 5px;
+        color: #dc3545;
+    }
+
+    .form-control.is-invalid {
+        border-color: #dc3545;
+    }
+
+        .form-control.is-invalid + .invalid-feedback {
+            display: block;
+        }
+</style>
