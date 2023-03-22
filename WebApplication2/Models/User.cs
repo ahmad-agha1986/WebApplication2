@@ -13,11 +13,11 @@ namespace WebApplication2.Models
         public string? Job_Title { get; set; }
 
 
-        // [Required(ErrorMessage = "First name is required")]
+       
         public string? FirstName { get; set; }
 
 
-        // [Required(ErrorMessage = "Last name is required")]
+        
         public string? LastName { get; set; }
 
 
@@ -33,7 +33,7 @@ namespace WebApplication2.Models
         [Required(ErrorMessage = "Registration date is required")]
         public DateTime? Registration_date { get; set; }
 
-        // [Required(ErrorMessage = "Please indicate whether the user is on leave or not.")]
+       
         public bool? OnLeave { get; set; }
 
     }
