@@ -7,7 +7,7 @@
 <div class="logout-button">
     <a class="btn btn-primary" href="@Url.Action("Logout", "Account")">Logout</a>
 </div>
-
+<
 
 <style>
 
@@ -20,7 +20,11 @@
         font-style: italic;
     }
 
-
+    .text-center {
+        font-style: italic;
+        background: center;
+        color: slategrey;
+    }
 
     .logout-button {
         position: absolute;
@@ -44,5 +48,17 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-lg-3 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Clients</h5>
+                    <p class="card-text">Manage client accounts.</p>
+                    <a href="@Url.Action("GetAllClients", "Client")" class="btn btn-primary">Go to Clients</a>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 </div>
