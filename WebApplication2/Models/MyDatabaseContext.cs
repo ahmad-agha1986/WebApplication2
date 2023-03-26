@@ -14,7 +14,7 @@ namespace WebApplication2.Models
         }
 
         public DbSet<User> Users { get; set; }
-
+        public DbSet<Client> Clients { get; set; }
         public DbSet<UserAuth> UserAuths { get; set; }
         public DbSet<Roles> Roles { get; set; }
         public DbSet<UserRoles> UserRoles { get; set; }
