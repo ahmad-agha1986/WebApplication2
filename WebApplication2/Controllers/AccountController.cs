@@ -137,6 +137,54 @@ namespace WebApplication2.Controllers
 
 
 
+        public IActionResult ChangePassword(int userId, string userEmail)
+        {
+            var model = new ChangePasswordViewModel
+            {
+                UserId = userId,
+                UserEmail = userEmail
+            };
+
+            return View(model);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                // Get the UserAuth object from the database
+                var user = await _context.UserAuths.FindAsync(model.UserId);
+
+                // Verify the old password
+                var passwordHasher = new PasswordHasher<UserAuth>();
+                var result = passwordHasher.VerifyHashedPassword(user, user.PasswordHash, model.OldPassword);
+                if (result == PasswordVerificationResult.Success)
+                {
+                    // Hash and store the new password
+                    user.PasswordHash = passwordHasher.HashPassword(user, model.NewPassword);
+                    _context.Update(user);
+                    await _context.SaveChangesAsync();
+
+                    return RedirectToAction("UserPage");
+                }
+                else
+                {
+                    ModelState.AddModelError("OldPassword", "Incorrect password.");
+                }
+            }
+
+            return View(model);
+        }
+
+
+
+
+
+
+
         public IActionResult AdminPage()
         {
             var userEmail = HttpContext.Session.GetString("userEmail");

@@ -1,0 +1,53 @@
+﻿@model RegisterUserViewModel
+
+<div class="card my-3" style="max-width: 600px;">
+    <div class="card-body">
+        <h1 class="card-title">Edit Profile</h1>
+        <hr />
+
+        <form asp-action="EditMyProfile" method="post">
+            <input type="hidden" name="userId" value="@Model.User.User_Id" />
+
+            <div class="form-group">
+                <label asp-for="User.FirstName" class="control-label">First Name</label>
+                <input asp-for="User.FirstName" class="form-control" />
+                <span asp-validation-for="User.FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="User.LastName" class="control-label">Last Name</label>
+                <input asp-for="User.LastName" class="form-control" />
+                <span asp-validation-for="User.LastName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="UserAuth.Email" class="control-label">Email</label>
+                <input asp-for="UserAuth.Email" class="form-control" />
+                <span asp-validation-for="UserAuth.Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="UserAuth.UserName" class="control-label">User Name</label>
+                <input asp-for="UserAuth.UserName" class="form-control" />
+                <span asp-validation-for="UserAuth.UserName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="User.Phone" class="control-label">Phone</label>
+                <input asp-for="User.Phone" class="form-control" />
+                <span asp-validation-for="User.Phone" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Password</label>
+                <a asp-action="ChangePassword" asp-controller="Account" asp-route-userId="@Model.UserAuth.Id" asp-route-userEmail="@Model.UserAuth.Email" class="btn btn-link">Change Password</a>
+
+            </div>
+
+            <div class="form-group mt-4">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a href="@Url.Action("UserPage", "Account")" class="btn btn-secondary ml-2">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
